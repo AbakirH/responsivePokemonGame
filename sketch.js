@@ -321,6 +321,12 @@
             $('#pic').empty();
             document.getElementById('moves').style.zIndex = '1';
             background('#a3c2c2');
+
+            // fill('#C0C0C0');
+            // ellipse(windowWidth / 13.3, windowHeight / 1.25, 150, 50); //shadowx    
+
+            // fill('#C0C0C0');
+            // ellipse(windowWidth / 1.1, windowHeight / 7, 150, 50); //shadow
             
 
             $('#pic').append(
