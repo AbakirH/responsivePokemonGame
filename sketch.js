@@ -377,6 +377,7 @@
     function pokebattle() {
         if (gamescreen == 2) {
             fullScreen();
+            
             $('#search').empty();
             $('#pic').empty();
             document.getElementById('moves').style.zIndex = '1';
@@ -488,10 +489,10 @@
         }
     }
 
-    function windowResized() {
-        canvas = resizeCanvas(windowWidth, windowHeight);
+    // function windowResized() {
+    //     canvas = resizeCanvas(windowWidth, windowHeight);
         
-    }
+    // }
     
 
     function moves(){
@@ -554,8 +555,6 @@ function fullScreen(){
         elem.msRequestFullscreen();
       }
 
-      if(!window.fullScreen) {
-                alert("Game will not function unless in fullscreen!")
-        } 
+      
     
 }
