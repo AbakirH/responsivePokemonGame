@@ -374,7 +374,7 @@
 
     function pokebattle() {
         if (gamescreen == 2) {
-
+            windowResized();
 
             $('#search').empty();
             $('#pic').empty();
@@ -512,13 +512,6 @@
         }
     }
 
-    // function health(){
-    //     if(switch4 == 'yes'){
-    //     document.getElementById("health").style.width = `100px`;
-    //     switch4 = 'no';
-    //     }
-
-    // }
 
     function calculate(num){
 
