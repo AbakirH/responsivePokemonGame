@@ -142,7 +142,7 @@
             shadowW = 250;
             shadowH = 100;  
             shadowPH = 1.15; 
-
+            
         }else if(windowHeight > 300 && windowWidth < 1000){
             shadowP = 8.5;
             shadowPH2 = 2.75;
@@ -150,6 +150,7 @@
 
             shadowW = 200;
             shadowH = 75;
+            
         }
         
         
@@ -175,7 +176,7 @@
             background('grey');
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
-                <button onclick='addpoke(); addEnemyPoke();'>Search!</button>
+                <button onclick='addpoke(); addEnemyPoke(); fullScreen();'>Search!</button>
                 <button onclick='battle()'>Start!</button>`);
             run++;
         }
@@ -538,4 +539,17 @@
         }
        
 
+}
+function fullScreen(){
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    
 }
