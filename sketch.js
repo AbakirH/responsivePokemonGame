@@ -175,7 +175,7 @@
             background('grey');
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
-                <button onclick='addpoke(); addEnemyPoke(); windowResized();'>Search!</button>
+                <button onclick='addpoke(); addEnemyPoke();'>Search!</button>
                 <button onclick='battle()'>Start!</button>`);
             run++;
         }
@@ -374,7 +374,6 @@
 
     function pokebattle() {
         if (gamescreen == 2) {
-            windowResized();
 
             $('#search').empty();
             $('#pic').empty();
