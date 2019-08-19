@@ -489,10 +489,9 @@
         }
     }
 
-    // function windowResized() {
-    //     canvas = resizeCanvas(windowWidth, windowHeight);
-        
-    // }
+    function windowResized() {
+        canvas = resizeCanvas(windowWidth, windowHeight);
+    }
     
 
     function moves(){
@@ -561,27 +560,27 @@ function fullScreen(){
         // the value of the property is null.
         if (!document.fullscreenElement) {
             $('#sketch-holder').append(`
-            <div class='modal' id='fix' role='dialog'>
-            <div class=' modal-dialog'>
-                <div class='modal-content'>
-                    <div class='modal-header'>
+                <div class='modal' id='fix' role='dialog'>
+                    <div class=' modal-dialog'>
                         <div class='modal-content'>
                             <div class='modal-header'>
-                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                                <h4 class='modal-title'> Functionality Alert</h4>
-                            </div> 
-                            <div class='modal-body'>
-                                <p>You need to be in fullscreen for the game to work as excepted, otherwise press the quit button!</p>
-                            </div>
-                            <div class='modal-footer'>
-                                <button type='button' class='btn btn-default' data-dismiss='modal' onclick='fullScreen();'>FullScreen</button>
-                                <button type='button' class='btn btn-default' data-dismiss='modal'>Quit</button>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                        <h4 class='modal-title'> Functionality Alert</h4>
+                                    </div> 
+                                    <div class='modal-body'>
+                                        <p>You need to be in fullscreen for the game to work as excepted, otherwise press the quit button!</p>
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-default' data-dismiss='modal' onclick='fullScreen();'>FullScreen</button>
+                                        <button type='button' class='btn btn-default' data-dismiss='modal'>Quit</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
             `);
             $('#fix').modal('show');
             $('.modal-backdrop').remove();
