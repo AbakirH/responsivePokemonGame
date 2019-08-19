@@ -46,6 +46,7 @@ img {
 }
 
 #moves{
+    position: absolute;
     display: flex;
     height:10vh;
     flex-direction: column;
