@@ -178,7 +178,7 @@
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
                 <button onclick='addpoke(); addEnemyPoke(); '>Search!</button>
-                <button onclick='battle(); fullScreen();'>Start!</button>`);
+                <button onclick='battle(); '>Start!</button>`);
             run++;
         }
     }
@@ -376,7 +376,7 @@
 
     function pokebattle() {
         if (gamescreen == 2) {
-
+            fullScreen();
             $('#search').empty();
             $('#pic').empty();
             document.getElementById('moves').style.zIndex = '1';
@@ -436,6 +436,7 @@
 
             moves(); 
             check();
+            
         }
     }
 
@@ -552,5 +553,9 @@ function fullScreen(){
       } else if (elem.msRequestFullscreen) { /* IE/Edge */
         elem.msRequestFullscreen();
       }
+
+      if(!window.fullScreen) {
+                alert("Game will not function unless in fullscreen!")
+        } 
     
 }
