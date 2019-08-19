@@ -544,11 +544,11 @@
 
 }
 function fullScreen(){
-    
+
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
         } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
+            elem.mozRequestFullscreen();
         } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
             elem.webkitRequestFullscreen();
         } else if (elem.msRequestFullscreen) { /* IE/Edge */
@@ -568,7 +568,10 @@ function fullScreen(){
                         <div class='modal-content'>
                             <div class='modal-header'>
                                 <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                                <h4 class='modal-title'> Unable to find the indicated pokemon. Please recheck the spelling of the inputted text or number.</h4>
+                                <h4 class='modal-title'> Functionality Alert</h4>
+                            </div> 
+                            <div class='modal-body'>
+                                <p>You need to be in fullscreen for the game to work as excepted, otherwise press the quit button!</p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='button' class='btn btn-default' data-dismiss='modal' onclick='fullScreen();'>FullScreen</button>
