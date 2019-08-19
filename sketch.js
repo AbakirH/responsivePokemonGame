@@ -53,6 +53,8 @@
     let power4 = '';
     let canvas;
 
+    let switch6 = "false";
+
     function Pokemon(Name, Type, figure, maxHP, hp, move1, power1, move2,
         power2, move3, power3, move4, power4) {
         this.Name = Name;
@@ -178,11 +180,10 @@
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
                 <button onclick='addpoke(); addEnemyPoke(); '>Search!</button>
-                <button onclick='battle(); '>Start!</button>`);
+                <button onclick='battle(); fullScreen();'>Start!</button>`);
             run++;
         }
     }
-
 
     function addpoke() {
 
@@ -376,8 +377,7 @@
 
     function pokebattle() {
         if (gamescreen == 2) {
-            fullScreen();
-            
+
             $('#search').empty();
             $('#pic').empty();
             document.getElementById('moves').style.zIndex = '1';
@@ -544,17 +544,44 @@
 
 }
 function fullScreen(){
-
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
-
-      
     
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+ 
+    document.addEventListener('fullscreenchange', (event) => {
+        // document.fullscreenElement will point to the element that
+        // is in fullscreen mode if there is one. If there isn't one,
+        // the value of the property is null.
+        if (!document.fullscreenElement) {
+            $('#sketch-holder').append(`
+            <div class='modal' id='fix' role='dialog'>
+            <div class=' modal-dialog'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'> Unable to find the indicated pokemon. Please recheck the spelling of the inputted text or number.</h4>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-default' data-dismiss='modal' onclick='fullScreen();'>FullScreen</button>
+                                <button type='button' class='btn btn-default' data-dismiss='modal'>Quit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            `);
+            $('#fix').modal('show');
+            $('.modal-backdrop').remove();
+        } 
+      });
 }
