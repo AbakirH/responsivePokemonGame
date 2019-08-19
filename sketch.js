@@ -25,7 +25,8 @@
 
     let shadowP2;
     let shadowPH2;
-    
+
+    let elem = document.getElementById("sketch-holder");
 
     //Health Bar 
     let a;
@@ -176,8 +177,8 @@
             background('grey');
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
-                <button onclick='addpoke(); addEnemyPoke(); fullScreen();'>Search!</button>
-                <button onclick='battle()'>Start!</button>`);
+                <button onclick='addpoke(); addEnemyPoke(); '>Search!</button>
+                <button onclick='battle(); fullScreen();'>Start!</button>`);
             run++;
         }
     }
