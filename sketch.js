@@ -17,6 +17,16 @@
     let pokesimulator1;
     let pokesimulator2;
 
+
+    let shadowP;
+    let shadowW;
+    let shadowH;
+    let shadowPH;
+
+    let shadowP2;
+    let shadowPH2;
+    
+
     //Health Bar 
     let a;
     let b;
@@ -85,9 +95,37 @@
         canvas = createCanvas(windowWidth, windowHeight);
         canvas.parent('sketch-holder');
 
+        if (windowWidth > 1500 ){
+            shadowP = 13.3;
+            shadowW = 150;
+            shadowH = 50;
+            shadowPH = 1.18;
+
+            shadowPH2 = 6;
+            shadowP2 = 1.15;
+            
+        } else if(windowWidth > 1000 ){
+            shadowP = 11;
+            shadowW = 200;
+            shadowH = 75;
+            shadowPH = 1.2;
+
+            shadowPH2 = 5;
+            shadowP2 = 1.1;
+        }else if(windowWidth > 350 ){
+            shadowP =  8;
+            shadowW = 250;
+            shadowH = 100;
+            shadowPH = 1.1;
+
+            shadowPH2 = 9.5;
+            shadowP2 = 1.15;
+        }
+        
     }
 
     function draw() {
+
 
         background(pic);
         if (run == 0) {
@@ -96,6 +134,25 @@
             chooseThatPoke();
         }
         pokebattle();
+
+        if(windowHeight > 600 && windowWidth < 1000){
+            shadowP = 8;
+            shadowPH2 = 10;  
+
+            shadowW = 250;
+            shadowH = 100;  
+            shadowPH = 1.15; 
+
+        }else if(windowHeight > 300 && windowWidth < 1000){
+            shadowP = 8.5;
+            shadowPH2 = 2.75;
+            shadowPH = 1.25;
+
+            shadowW = 200;
+            shadowH = 75;
+        }
+        
+        
 
         
     }
@@ -317,35 +374,44 @@
 
     function pokebattle() {
         if (gamescreen == 2) {
+
+
             $('#search').empty();
             $('#pic').empty();
             document.getElementById('moves').style.zIndex = '1';
             background('#a3c2c2');
 
-            // fill('#C0C0C0');
-            // ellipse(windowWidth / 13.3, windowHeight / 1.25, 150, 50); //shadowx    
+            fill('#C0C0C0');
+            ellipse(windowWidth / shadowP, windowHeight / shadowPH, shadowW, shadowH); //shadowx    
 
-            // fill('#C0C0C0');
-            // ellipse(windowWidth / 1.1, windowHeight / 7, 150, 50); //shadow
+            fill('#C0C0C0');
+            ellipse(windowWidth / shadowP2, windowHeight / shadowPH2, shadowW, shadowH); //shadow
             
 
             $('#pic').append(
-                `<div id="userinfo">
-                    <div id="userpoke">
-                        <img class="stop" src= '${pokesimulator1.figure}'>
-                        <div class="circleBase type1"> </div>
-                    </div>
                 
-                    <div id="healthbox">
+                `<div id="bottom">
+                    <div id="userinfo">
+                        <div id="userpoke">
+                            <img  class = "battlePic" class="stop" src= '${pokesimulator1.figure}'>
+                            
+                        </div>
                     
-                            <h1> ${pokesimulator1.Name} </h1>
-                            <div id="maxhealth">
-                                <div style="width:${((((pokesimulator1.hp) / pokesimulator1.maxHP) * 100))}px;" id="health">
+                        <div id="healthbox">
+                        
+                                <h1> ${pokesimulator1.Name} </h1>
+                                <div id="maxhealth">
+                                    <div style="width:${((((pokesimulator1.hp) / pokesimulator1.maxHP) * 100))}px;" id="health">
+                                    </div>
                                 </div>
-                            </div>
-                            <h1> HP: ${pokesimulator1.hp} </h1>
+                                <h1> HP: ${pokesimulator1.hp} </h1>
+                        </div>
                     </div>
-                </div>`
+                    <div id = "history">
+                    </div>
+                </div>
+                
+                `
             );
             
             $('#search').append(
@@ -361,8 +427,7 @@
                     
 
                     <div id"Euserpoke">
-                        <img src= '${pokesimulator2.figure}'>
-                        <div class="circleBase type1"></div>
+                        <img class = "battlePic" src= '${pokesimulator2.figure}'>
                     </div>
                 
                  </div>`
@@ -430,11 +495,16 @@
     function moves(){
         if(switch5 == 'yes'){
             document.getElementById('moves').innerHTML ='';
+            document.getElementById('moves').style.backgroundColor = "red";
             $('#moves').append(
-                `   <button onclick='calculate(0)' class='move' >${pokesimulator1.move1}</button>
+                
+                `   <h1> Moves: </h1>
+                    <div id="userMoves">
+                    <button onclick='calculate(0)' class='move' >${pokesimulator1.move1}</button>
                     <button onclick='calculate(1)' class='move'>${pokesimulator1.move2}</button>
                     <button onclick='calculate(2)' class='move'>${pokesimulator1.move3}</button>
                     <button onclick='calculate(3)' class='move'>${pokesimulator1.move4}</button>
+                    </div>
                 `
                 );
                 switch5 = 'no';
