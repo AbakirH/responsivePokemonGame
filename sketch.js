@@ -7,7 +7,6 @@
     let run = 0;
     let sixPoke = true;
 
-    window.scrollTo(0,1);
     let switch5 = 'yes';
     let switch4 = 'yes';
 
@@ -180,7 +179,7 @@
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
                 <button onclick='addpoke(); addEnemyPoke(); '>Search!</button>
-                <button onclick='battle(); fullScreen();'>Start!</button>`);
+                <button onclick='battle(); fullScreen(); webkitRequestFullscreen();'>Start!</button>`);
             run++;
         }
     }
