@@ -544,15 +544,15 @@
 }
 function fullScreen(){
 
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
-        }
+    if (elem.requestFullscreen){
+        elem.requestFullscreen();
+    }else if (elem.msRequestFullscreen){
+        elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen){
+        elem.mozRequestFullScreen();
+    }else if (elem.webkitRequestFullscreen){
+        elem.webkitRequestFullscreen();
+    }
  
     document.addEventListener('fullscreenchange', (event) => {
         // document.fullscreenElement will point to the element that
