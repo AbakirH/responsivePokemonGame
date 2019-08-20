@@ -7,7 +7,7 @@
     let run = 0;
     let sixPoke = true;
 
-
+    window.scrollTo(0,1);
     let switch5 = 'yes';
     let switch4 = 'yes';
 
