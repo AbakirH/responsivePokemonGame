@@ -16,6 +16,8 @@
     let pokesimulator1;
     let pokesimulator2;
 
+    let damage;
+    let damageE;
 
     let shadowP;
     let shadowW;
@@ -179,7 +181,7 @@
             $('#search').append(`<h1 id='instruction'>Choose Your Six Pokemon</h1>
                 <input id='whichpoke' placeholder='Pokemon'/>
                 <button onclick='addpoke(); addEnemyPoke(); '>Search!</button>
-                <button onclick='battle(); fullScreen(); webkitRequestFullscreen();'>Start!</button>`);
+                <button onclick='battle(); fullScreen();'>Start!</button>`);
             run++;
         }
     }
@@ -408,8 +410,7 @@
                                 <h1> HP: ${pokesimulator1.hp} </h1>
                         </div>
                     </div>
-                    <div id = "history">
-                    </div>
+                    
                 </div>
                 
                 `
@@ -508,6 +509,7 @@
                     </div>
                 `
                 );
+                
                 switch5 = 'no';
                 
         }
@@ -515,13 +517,20 @@
 
 
     function calculate(num){
-
+        
         if(document.getElementsByClassName('move')[num].innerHTML == `${pokesimulator1.move1}`){
             
+            damage = Math.floor(random(0, pokesimulator2.power1));
+            damageE = Math.floor(random(0, pokesimulator1.power1)); 
 
-            pokesimulator1.hp = pokesimulator1.hp - Math.floor(random(0, pokesimulator2.power1)); 
-            pokesimulator2.hp = pokesimulator2.hp - Math.floor(random(0, pokesimulator1.power1)); 
-
+            pokesimulator1.hp =  pokesimulator1.hp - damage;
+            pokesimulator2.hp = pokesimulator2.hp -  damageE;
+            
+            $('#history').append(
+                `<h1> Moves: </h1>
+                
+                `
+            );
 
         }else if(document.getElementsByClassName('move')[num].innerHTML == `${pokesimulator1.move2}`){
     
@@ -552,11 +561,9 @@ function fullScreen(){
     }else if (elem.webkitRequestFullscreen){
         elem.webkitRequestFullscreen();
     }
-
-    setTimeout(function(){
         // This hides the address bar:
         window.scrollTo(0, 1);
-    }, 0);
+ 
     document.addEventListener('fullscreenchange', (event) => {
         // document.fullscreenElement will point to the element that
         // is in fullscreen mode if there is one. If there isn't one,
@@ -589,4 +596,5 @@ function fullScreen(){
             $('.modal-backdrop').remove();
         } 
       });
+    
 }
