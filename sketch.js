@@ -552,8 +552,7 @@ function fullScreen(){
     }else if (elem.webkitRequestFullscreen){
         elem.webkitRequestFullscreen();
     }
-    document.querySelector("#sketch-holder").requestFullscreen();
- 
+
     document.addEventListener('fullscreenchange', (event) => {
         // document.fullscreenElement will point to the element that
         // is in fullscreen mode if there is one. If there isn't one,
