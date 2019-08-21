@@ -24,7 +24,12 @@
 
     let shadowP2;
     let shadowPH2;
-
+    window.addEventListener("load",function() {
+        setTimeout(function(){
+            // This hides the address bar:
+            window.scrollTo(0, 1);
+        }, 0);
+    });
     let elem = document.getElementById("sketch-holder");
 
     //Health Bar 
@@ -501,7 +506,7 @@
                 
                 `   <h1> Moves: </h1>
                     <div id="userMoves">
-                    <button onclick='calculate(0)' class='move' >${pokesimulator1.move1}</button>
+                    <button onclick='calculate(0)' class='move'>${pokesimulator1.move1}</button>
                     <button onclick='calculate(1)' class='move'>${pokesimulator1.move2}</button>
                     <button onclick='calculate(2)' class='move'>${pokesimulator1.move3}</button>
                     <button onclick='calculate(3)' class='move'>${pokesimulator1.move4}</button>
