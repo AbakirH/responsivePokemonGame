@@ -24,12 +24,7 @@
 
     let shadowP2;
     let shadowPH2;
-    window.addEventListener("load",function() {
-        setTimeout(function(){
-            // This hides the address bar:
-            window.scrollTo(0, 1);
-        }, 0);
-    });
+
     let elem = document.getElementById("sketch-holder");
 
     //Health Bar 
@@ -558,6 +553,10 @@ function fullScreen(){
         elem.webkitRequestFullscreen();
     }
 
+    setTimeout(function(){
+        // This hides the address bar:
+        window.scrollTo(0, 1);
+    }, 0);
     document.addEventListener('fullscreenchange', (event) => {
         // document.fullscreenElement will point to the element that
         // is in fullscreen mode if there is one. If there isn't one,
