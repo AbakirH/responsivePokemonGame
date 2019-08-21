@@ -552,6 +552,7 @@ function fullScreen(){
     }else if (elem.webkitRequestFullscreen){
         elem.webkitRequestFullscreen();
     }
+    document.querySelector("#sketch-holder").requestFullscreen();
  
     document.addEventListener('fullscreenchange', (event) => {
         // document.fullscreenElement will point to the element that
